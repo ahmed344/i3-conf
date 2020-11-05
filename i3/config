@@ -4,7 +4,7 @@
 set $mod Mod4
 
 # Set a wallpaper
-exec_always feh --bg-fill /home/ahmed/Pictures/1091470.jpg
+exec_always feh --bg-fill /home/ahmed/Pictures/wp5813848-space-desktop-4k-wallpapers.jpg
 
 # Display resolution
 exec_always xrand --output eDP-1 --primary --mode 1366x768 --pos 0x0 --rotate normal --output HDMI-1 --off --output DP-1 --off
@@ -107,16 +107,16 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # Workspaces names
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10"
+set $ws1   1:
+set $ws2   2:
+set $ws3   3:
+set $ws4   4:
+set $ws5   5:
+set $ws6   6:
+set $ws7   7:7
+set $ws8   8:8
+set $ws9   9:9
+set $ws0   10:10
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -147,12 +147,15 @@ for_window [class="firefox"] move to workspace $ws2
 for_window [class="Pcmanfm"] move to workspace $ws3
 for_window [class="Thunderbird"] move to workspace $ws4
 for_window [class="vlc"] move to workspace $ws5
+for_window [class="Subl3"] move to workspace $ws6
+for_window [class="libreoffice"] move to workspace $ws6
 
 # Start programs
 bindsym $mod+F2 exec firefox
 bindsym $mod+F3 exec pcmanfm
 bindsym $mod+F4 exec thunderbird
 bindsym $mod+F5 exec vlc
+bindsym $mod+F6 exec subl3
 
 # reload the configuration file
 #bindsym $mod+Shift+c reload
@@ -258,7 +261,7 @@ mode "$mode_gaps_outer" {
 set $bgcolor		#1f2d4dB3
 set $ibgcolor 		#0f1626
 set $fws		#1f2d4dE6
-set $barcolor		#1f2d4d88
+set $barcolor		#363636B3
 set $textcolor		#ffffff
 set $itextcolor 	#adb7cc
 set $ubgcolor		#ff0000
@@ -278,7 +281,10 @@ bar {
         status_command i3blocks -c /home/ahmed/.config/i3/i3blocks/i3blocks.conf
 	i3bar_command i3bar --transparency
 	#tray_output none
-	font pango:monospace 11
+	mode dock
+	strip_workspace_numbers yes
+	height 18
+	font pango: xos4 Terminess Powerline, awesome 9
 	colors {
 		background $barcolor
 		statusline $textcolor
